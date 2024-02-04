@@ -15,6 +15,28 @@ const app = express();
 const testRouter = require('../git_tuts/routs/testRouter');
 app.use('/v1', testRouter); 
 
+const mysql = require('mysql2');
+
+// Create a connection pool
+const pool = mysql.createPool({
+  connectionLimit: 10,
+  host: process.env.mysql_host,
+  user: process.env.mysql_user,
+  password: process.env.mysql_password,
+  database: ''
+});
+
+// Test the connection
+pool.getConnection((err, connection) => {
+  if (err) {
+    console.error('Database connection failed: ' + err.message);
+  } else {
+    console.log('Connected to the database');
+    connection.release(); // Release the connection
+  }
+});
+
+
 // Set up the server to listen on the specified port
 const server = app.listen(PORT, () => {
     console.log('Hello...server started...!!!')
