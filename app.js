@@ -1,6 +1,7 @@
 // Import the Express module
 const express = require('express');
 const dotenv = require('dotenv');
+const TestService = require('./service/testService');
 
 // Load environment variables from .env file
 dotenv.config();
@@ -11,10 +12,8 @@ const PORT = process.env.PORT || 5000; // Set default port if PORT is not define
 // Create an instance of the Express application
 const app = express();
 
-// Define a route for the homepage
-app.get('/', (req, res) => {
-    res.send('Hello, World!');
-});
+const testRouter = require('../git_tuts/routs/testRouter');
+app.use('/v1', testRouter); 
 
 // Set up the server to listen on the specified port
 const server = app.listen(PORT, () => {
