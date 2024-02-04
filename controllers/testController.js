@@ -1,6 +1,6 @@
 const TestService = require("../service/testService");
 
-async function testController(req, res) { // <-- Include res as a parameter
+async function getTable(req, res) { // <-- Include res as a parameter
   try {
     const params = req.query;
     const testService = new TestService();
@@ -14,5 +14,5 @@ async function testController(req, res) { // <-- Include res as a parameter
 }
 
 module.exports = {
-  testController
+    getTable
 };
