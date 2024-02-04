@@ -17,8 +17,8 @@ app.use('/v1', testRouter);
 
 // Set up the server to listen on the specified port
 const server = app.listen(PORT, () => {
+    console.log('Hello...server started...!!!')
     console.log(`Server is running on http://localhost:${PORT}`);
-    console.log('server started...!!!')
 });
 
 // Handle closing the server gracefully

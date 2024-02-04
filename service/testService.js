@@ -1,13 +1,14 @@
 class TestService {
   constructor() {}
 
-  async numbers() {
+  async table(params) {
     try {
-      let numbersList = [1, 2, 3, 4, 5];
-      numbersList.forEach((number, index) => {
-        numbersList[index] = number * 2;
-      });
-      return numbersList;
+      let table = [];
+      for (let i = 1; i < 21; i++) {
+        let multiply = params.num * i;
+        table.push(`${params.num} * ${i} = ${multiply}`);
+      }
+      return table;
     } catch (e) {
       console.log(e);
     }
