@@ -1,7 +1,6 @@
 // Import the Express module
 const express = require('express');
 const dotenv = require('dotenv');
-const TestService = require('./service/testService');
 
 // Load environment variables from .env file
 dotenv.config();
